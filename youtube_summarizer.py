@@ -6,6 +6,7 @@ from youtube_transcript_api.formatters import TextFormatter
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from urllib.parse import urlparse, parse_qs
+from youtube_transcript_api.proxies import WebshareProxyConfig
 
 load_dotenv()
 st.header('🎥 YouTube Video Summarizer')
@@ -34,7 +35,13 @@ if st.button('Submit'):
     else:
         try:
             # Get and translate transcript
-            transcript_list = YouTubeTranscriptApi.list_transcripts(video_id)
+            ytt_api = YouTubeTranscriptApi(
+                proxy_config=WebshareProxyConfig(
+                proxy_username="nxpgclyy",
+                proxy_password="v6vl9y7d2zkl",
+                )
+            )
+            transcript_list = ytt_api.list_transcripts(video_id)
             translated_transcript = transcript_list.find_transcript(['hi']).translate('en')
             transcript = translated_transcript.fetch()
 
