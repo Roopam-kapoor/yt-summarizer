@@ -30,8 +30,8 @@ def extract_video_id(url):
 
 # Proxy setup
 proxies = {
-    "http": "http://nxpgclyy:v6vl9y7d2zkl@proxy-ip:6540",
-    "https": "http://nxpgclyy:v6vl9y7d2zkl@proxy-ip:6540"
+    "http": "http://nxpgclyy:v6vl9y7d2zkl@198.23.239.134:6540",
+    "https": "http://nxpgclyy:v6vl9y7d2zkl@198.23.239.134:6540"
 }
 os.environ['http_proxy'] = proxies['http']
 os.environ['https_proxy'] = proxies['https']
